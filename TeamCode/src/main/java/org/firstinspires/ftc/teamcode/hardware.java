@@ -10,7 +10,7 @@ public class hardware {
     public DcMotor Right_Top;
     public DcMotor Left_Bottom;
     public DcMotor Left_Top;
-    //vuforia
+    public DcMotor Spinner;
 
     HardwareMap hwMap = null;
 
@@ -21,6 +21,7 @@ public class hardware {
         Right_Top = hwMap.get(DcMotor.class, "Right_Top");
         Left_Bottom = hwMap.get(DcMotor.class, "Left_Bottom");
         Left_Top = hwMap.get(DcMotor.class, "Left_Top");
+        Spinner = hwMap.get(DcMotor.class, "Spinner");
 
     }
 
