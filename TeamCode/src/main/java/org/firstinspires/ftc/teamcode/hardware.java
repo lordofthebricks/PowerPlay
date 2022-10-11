@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class hardware {
@@ -17,12 +18,13 @@ public class hardware {
     public void init(HardwareMap ahwMap){
 
         hwMap = ahwMap;
-        Right_Bottom = hwMap.get(DcMotor.class, "Right_Bottom");
-        Right_Top = hwMap.get(DcMotor.class, "Right_Top");
-        Left_Bottom = hwMap.get(DcMotor.class, "Left_Bottom");
-        Left_Top = hwMap.get(DcMotor.class, "Left_Top");
+        Right_Bottom = hwMap.get(DcMotor.class, "Right Back");
+        Right_Top = hwMap.get(DcMotor.class, "Right Front");
+        Left_Bottom = hwMap.get(DcMotor.class, "Left Back");
+        Left_Top = hwMap.get(DcMotor.class, "Left Front");
         Spinner = hwMap.get(DcMotor.class, "Spinner");
-
+        Right_Top.setDirection(DcMotor.Direction.REVERSE);
+        Right_Bottom.setDirection(DcMotor.Direction.REVERSE);
     }
 
 
