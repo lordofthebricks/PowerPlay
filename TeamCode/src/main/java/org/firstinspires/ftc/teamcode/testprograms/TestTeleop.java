@@ -19,6 +19,7 @@ public class TestTeleop extends LinearOpMode {
         robot.init(hardwareMap);
 
         waitForStart();
+
         while (opModeIsActive()) {
             robot.Left_Bottom.setPower(gamepad1.left_stick_y*0.7);
             robot.Right_Bottom.setPower(gamepad1.right_stick_y*0.7);
