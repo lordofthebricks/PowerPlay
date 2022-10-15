@@ -1,12 +1,10 @@
 package org.firstinspires.ftc.teamcode.testprograms;
 
-import android.hardware.HardwareBuffer;
-
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 
-import org.firstinspires.ftc.teamcode.hardware;
+import org.firstinspires.ftc.teamcode.utils.hardware;
 
 @TeleOp
 public class TestTeleop extends LinearOpMode {
