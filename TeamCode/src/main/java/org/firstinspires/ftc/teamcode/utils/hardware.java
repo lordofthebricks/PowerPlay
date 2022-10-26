@@ -26,8 +26,8 @@ public class hardware {
         Left_Bottom = hwMap.get(DcMotor.class, "Left Back");
         Left_Top = hwMap.get(DcMotor.class, "Left Front");
         Slider = hwMap.get(DcMotor.class,"Slider");
-        Intake1 =hwMap.get(CRServo.class,"Intake1");
-        Intake2 =hwMap.get(CRServo.class,"Intake2");
+        Intake1 = hwMap.get(CRServo.class,"Intake1");
+        Intake2 = hwMap.get(CRServo.class,"Intake2");
         Right_Top.setDirection(DcMotor.Direction.REVERSE);
         Right_Bottom.setDirection(DcMotor.Direction.REVERSE);
         Slider.setDirection(DcMotorSimple.Direction.REVERSE);
