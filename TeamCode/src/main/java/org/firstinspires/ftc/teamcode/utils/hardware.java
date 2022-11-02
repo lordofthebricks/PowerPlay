@@ -33,5 +33,27 @@ public class hardware {
         Slider.setDirection(DcMotorSimple.Direction.REVERSE);
 
     }
+    
+    public void intakeOut(int time){
+        Intake1.setPower(-0.8);
+        Intake2.setPower(0.8);
+        try{
+            Thread.sleep(time*1000);
+        } catch (InterruptedException e) {}
+
+        Intake1.setPower(0);
+        Intake2.setPower(0);
+    };
+    
+    public void intakeIn(int time){
+        Intake1.setPower(0.8);
+        Intake2.setPower(-0.8);
+        try{
+            Thread.sleep(time*1000);
+        } catch (InterruptedException e) {}
+
+        Intake1.setPower(0);
+        Intake2.setPower(0);
+    };
 }
 

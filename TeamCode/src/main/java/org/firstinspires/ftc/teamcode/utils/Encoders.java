@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode.utils;
 
-import android.icu.text.RelativeDateTimeFormatter;
+
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -18,9 +18,9 @@ public class Encoders {
     static final double     SL_COUNTS_PER_MOTOR_REV    = 537.7;//356.3 ;    // 5203-2402-0019 motor
     static final double     SL_DRIVE_GEAR_REDUCTION    = 1.0 ;     // This is < 1.0 if geared UP
     static final double     SL_WHEEL_DIAMETER_INCHES   = 1.4 ;     // pulley diameter
-    static final double     SL_COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
+    static final double     SL_COUNTS_PER_INCH         = (SL_COUNTS_PER_MOTOR_REV * SL_DRIVE_GEAR_REDUCTION) /
             //first hundred digits of pi fr more accuracy
-            (WHEEL_DIAMETER_INCHES * Math.PI);
+            (SL_WHEEL_DIAMETER_INCHES * Math.PI);
 
 
 
@@ -120,8 +120,8 @@ public class Encoders {
                 // Display it for the driver.
                 //telemetry.addData("Path1", "Running to %7d :%7d", newLeftBottomTarget, newRightBottomTarget, newLeftTopTarget, newRightTopTarget);
                 //telemetry.addData("Path2", "Running at %7d :%7d", robot.Left_Bottom.getCurrentPosition(), robot.Right_Bottom.getCurrentPosition());
-                robot.Left_Top.getCurrentPosition();
-                robot.Right_Top.getCurrentPosition();
+//                robot.Left_Top.getCurrentPosition();
+//                robot.Right_Top.getCurrentPosition();
                 //telemetry.update();
             }
 

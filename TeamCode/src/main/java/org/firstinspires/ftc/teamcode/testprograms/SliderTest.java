@@ -25,8 +25,9 @@ public class SliderTest extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()){
-            encoders.encoderSlider(0.7,35,3);
+            encoders.encoderSlider(0.7,10,3);
 
+            encoders.encoderSlider(0.5,-10,3);
 
 
         }
