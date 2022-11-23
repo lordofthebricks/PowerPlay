@@ -15,7 +15,7 @@ public class Autonmous extends LinearOpMode {
 
     hardware robot = new hardware();
     ElapsedTime runtime = new ElapsedTime();
-    Encoders encoders = new Encoders(robot,true, runtime);
+    Encoders encoders = new Encoders(robot,/*true,*/ runtime);
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -31,14 +31,14 @@ public class Autonmous extends LinearOpMode {
 
         waitForStart();
 
-        encoders.encoderDrive(0.7,-24,-24,-24,-24,5);
-        encoders.encoderDrive(0.7,-36,36,-36,36,5);
-        encoders.encoderSlider(0.7,34,6);
+        encoders.encoderDrive(0.7,-24,-24,-24,-24,5, opModeIsActive());
+        encoders.encoderDrive(0.7,-36,36,-36,36,5, opModeIsActive());
+        encoders.encoderSlider(0.7,34,6, opModeIsActive());
         robot.Slider.setPower(0.1);
-        encoders.encoderDrive(0.5,-9,-9,-9,-9,2);
+        encoders.encoderDrive(0.3,-9,-9,-9,-9,4, opModeIsActive());
         robot.intakeOut(1);
-        encoders.encoderDrive(0.7,9,9,9,9,2);
-        encoders.encoderSlider(0.5,-34,4);
+        encoders.encoderDrive(0.3,9,9,9,9,4, opModeIsActive());
+        encoders.encoderSlider(0.5,-34,4, opModeIsActive());
 
     }
 }

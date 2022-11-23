@@ -17,6 +17,9 @@ public class Teleop extends LinearOpMode {
         hardware robot = new hardware();
 
         robot.init(hardwareMap);
+//        robot.Slider.setPower(0.5);
+//        sleep(650);
+//        robot.Slider.setPower(0.1);
 
         waitForStart();
 
@@ -26,7 +29,7 @@ public class Teleop extends LinearOpMode {
             robot.Left_Top.setPower(gamepad1.left_stick_y*0.7);
             robot.Right_Top.setPower(gamepad1.right_stick_y*0.7);
 
-            double countsPerRotationSlide = 537.7;
+            double countsPerRotationSlide = 537.7/2;
             if(gamepad1.a){
                 if (sliderRotations>0){
                     robot.Slider.setTargetPosition((int) (robot.Slider.getCurrentPosition() - countsPerRotationSlide));
@@ -37,7 +40,7 @@ public class Teleop extends LinearOpMode {
                     robot.Slider.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
                 }
             }else if(gamepad1.x){
-                if (sliderRotations<9){
+                if (sliderRotations<17){
                     robot.Slider.setTargetPosition((int) (robot.Slider.getCurrentPosition() + countsPerRotationSlide));
                     robot.Slider.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                     robot.Slider.setPower(0.6);

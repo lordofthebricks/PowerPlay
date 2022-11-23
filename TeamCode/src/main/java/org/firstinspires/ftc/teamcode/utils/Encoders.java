@@ -23,15 +23,15 @@ public class Encoders {
 
     private ElapsedTime runtime;
     hardware robot;
-    boolean opModeIsActive;
+//    boolean opModeIsActive;
 
-    public Encoders(hardware robot, boolean opModeIsActive, ElapsedTime runtime) {
+    public Encoders(hardware robot, /*boolean opModeIsActive,*/ ElapsedTime runtime) {
             this.robot = robot;
-            this.opModeIsActive = opModeIsActive;
+//            this.opModeIsActive = opModeIsActive;
             this.runtime = runtime;
     }
 
-    public void encoderSlider ( double speed, double Slider_Inches, double timeoutS){
+    public void encoderSlider ( double speed, double Slider_Inches, double timeoutS, boolean opModeIsActive){
         int newSliderTarget;
 
 
@@ -74,7 +74,7 @@ public class Encoders {
                               double Right_Bottom_Inches,
                               double Right_Top_Inches,
                               double Left_Top_Inches,
-                              double timeoutS){
+                              double timeoutS, boolean opModeIsActive){
         int newLeftBottomTarget;
         int newRightBottomTarget;
         int newRightTopTarget;

@@ -17,7 +17,7 @@ public class SliderTest extends LinearOpMode {
 
         ElapsedTime runtime = new ElapsedTime();
         hardware robot = new hardware();
-        Encoders encoders = new Encoders(robot,true, runtime);
+        Encoders encoders = new Encoders(robot,/*true,*/ runtime);
 
 
         robot.init(hardwareMap);
@@ -25,9 +25,9 @@ public class SliderTest extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()){
-            encoders.encoderSlider(0.7,10,3);
+            encoders.encoderSlider(0.7,10,3, opModeIsActive());
 
-            encoders.encoderSlider(0.5,-10,3);
+            encoders.encoderSlider(0.5,-10,3, opModeIsActive());
 
 
         }
