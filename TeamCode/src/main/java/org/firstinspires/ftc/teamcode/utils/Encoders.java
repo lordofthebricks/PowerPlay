@@ -6,21 +6,18 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+
 public class Encoders {
 
-    static final double     COUNTS_PER_MOTOR_REV    = 1425.2;//356.3 ;    // eg: DC Motor Encoder
+    static final double     COUNTS_PER_MOTOR_REV    = 384.5;    // eg: DC Motor Encoder
     static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;     // This is < 1.0 if geared UP
     static final double     WHEEL_DIAMETER_INCHES   = 3.75 ;     // For figuring circumference
-    static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
-            //first hundred digits of pi fr more accuracy
-            (WHEEL_DIAMETER_INCHES * Math.PI);
+    static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * Math.PI);
     //Slider encoder math
     static final double     SL_COUNTS_PER_MOTOR_REV    = 537.7;//356.3 ;    // 5203-2402-0019 motor
     static final double     SL_DRIVE_GEAR_REDUCTION    = 1.0 ;     // This is < 1.0 if geared UP
     static final double     SL_WHEEL_DIAMETER_INCHES   = 1.4 ;     // pulley diameter
-    static final double     SL_COUNTS_PER_INCH         = (SL_COUNTS_PER_MOTOR_REV * SL_DRIVE_GEAR_REDUCTION) /
-            //first hundred digits of pi fr more accuracy
-            (SL_WHEEL_DIAMETER_INCHES * Math.PI);
+    static final double     SL_COUNTS_PER_INCH         = (SL_COUNTS_PER_MOTOR_REV * SL_DRIVE_GEAR_REDUCTION)/ (SL_WHEEL_DIAMETER_INCHES * Math.PI);
 
 
 
@@ -106,22 +103,29 @@ public class Encoders {
             robot.Right_Top.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // reset the timeout time and start motion.
+            robot.Left_Bottom.setPower(0);
+            robot.Right_Bottom.setPower(0);
+            robot.Left_Top.setPower(0);
+            robot.Right_Top.setPower(0);
+
             runtime.reset();
             robot.Left_Bottom.setPower(Math.abs(speed));
             robot.Right_Bottom.setPower(Math.abs(speed));
             robot.Left_Top.setPower(Math.abs(speed));
             robot.Right_Top.setPower(Math.abs(speed));
 
+
             // keep looping while we are still active, and there is time left, and both motors are running.
             while (opModeIsActive &&
                     (runtime.seconds() < timeoutS) &&
                     (robot.Left_Bottom.isBusy() && robot.Right_Bottom.isBusy() && robot.Left_Top.isBusy() && robot.Right_Top.isBusy())) {
+                 
 
                 // Display it for the driver.
                 //telemetry.addData("Path1", "Running to %7d :%7d", newLeftBottomTarget, newRightBottomTarget, newLeftTopTarget, newRightTopTarget);
                 //telemetry.addData("Path2", "Running at %7d :%7d", robot.Left_Bottom.getCurrentPosition(), robot.Right_Bottom.getCurrentPosition());
-//                robot.Left_Top.getCurrentPosition();
-//                robot.Right_Top.getCurrentPosition();
+                //robot.Left_Top.getCurrentPosition();
+                //robot.Right_Top.getCurrentPosition();
                 //telemetry.update();
             }
 

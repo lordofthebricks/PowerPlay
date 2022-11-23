@@ -31,14 +31,14 @@ public class Autonmous extends LinearOpMode {
 
         waitForStart();
 
-        encoders.encoderDrive(0.05,-24,-24,-24,-24,3);
-        encoders.encoderDrive(0.05,-36,36,-36,36,3);
+        encoders.encoderDrive(0.7,-24,-24,-24,-24,5);
+        encoders.encoderDrive(0.7,-36,36,-36,36,5);
         encoders.encoderSlider(0.7,34,6);
         robot.Slider.setPower(0.1);
-        encoders.encoderDrive(0.05,-9,-9,-9,-9,2);
+        encoders.encoderDrive(0.5,-9,-9,-9,-9,2);
         robot.intakeOut(1);
-        encoders.encoderDrive(0.5,9,9,9,9,2);
-        encoders.encoderSlider(0.5,-34,6);
+        encoders.encoderDrive(0.7,9,9,9,9,2);
+        encoders.encoderSlider(0.5,-34,4);
 
     }
 }
