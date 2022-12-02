@@ -4,14 +4,13 @@ package org.firstinspires.ftc.teamcode.testprograms;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.utils.Encoders;
 import org.firstinspires.ftc.teamcode.utils.hardware;
 
-@Autonomous(name= "Blue1 Junction Only")
-public class Autonmous extends LinearOpMode {
+@Autonomous(name= "red 2 Junction Only")
+public class R2Junc extends LinearOpMode {
 
     hardware robot = new hardware();
     ElapsedTime runtime = new ElapsedTime();
@@ -28,17 +27,21 @@ public class Autonmous extends LinearOpMode {
         robot.Left_Top.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.Right_Bottom.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.Right_Top.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.intakeIn(1);
+        encoders.encoderSlider(0.5,1,1,opModeInInit());
 
         waitForStart();
 
-        encoders.encoderDrive(0.7,-24,-24,-24,-24,5, opModeIsActive());
-        encoders.encoderDrive(0.7,-36,36,-36,36,5, opModeIsActive());
-        encoders.encoderSlider(0.7,34,6, opModeIsActive());
+        encoders.encoderDrive(0.3,-23,-23,-23,-23,7, opModeIsActive());
+        encoders.encoderDrive(0.3,-37,37,-37,37,7, opModeIsActive());
+        encoders.encoderSlider(0.7,32,4, opModeIsActive());
         robot.Slider.setPower(0.1);
-        encoders.encoderDrive(0.3,-9,-9,-9,-9,4, opModeIsActive());
+        encoders.encoderDrive(0.2,-5,-5,-5,-5,4, opModeIsActive());
+        sleep(500);
         robot.intakeOut(1);
-        encoders.encoderDrive(0.3,9,9,9,9,4, opModeIsActive());
+        encoders.encoderDrive(0.2,7,7,7,7,4, opModeIsActive());
         encoders.encoderSlider(0.5,-34,4, opModeIsActive());
+        encoders.encoderDrive(0.5,-12,12,-12,12,3, opModeIsActive());
 
     }
 }

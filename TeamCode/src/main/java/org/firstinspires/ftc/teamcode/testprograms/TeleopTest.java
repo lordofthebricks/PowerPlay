@@ -4,11 +4,10 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-
 import org.firstinspires.ftc.teamcode.utils.hardware;
 
 @TeleOp
-public class Teleop extends LinearOpMode {
+public class TeleopTest extends LinearOpMode {
 
     Integer sliderRotations = 0;
     final double countsPerRotationSlide = 537.7;
@@ -33,23 +32,9 @@ public class Teleop extends LinearOpMode {
             telemetry.update();
 
             if(gamepad1.a){
-                if (sliderRotations>0){
-                    robot.Slider.setTargetPosition((int) (robot.Slider.getCurrentPosition() - countsPerRotationSlide/2));
-                    robot.Slider.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                    robot.Slider.setPower(0.9);
-                    while(robot.Slider.isBusy()){}
-                    sliderRotations--;
-                    robot.Slider.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-                }
+                    robot.Slider.setPower(-0.7);
             }else if(gamepad1.x){
-                if (sliderRotations<17){
-                    robot.Slider.setTargetPosition((int) (robot.Slider.getCurrentPosition() + countsPerRotationSlide/2));
-                    robot.Slider.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                    robot.Slider.setPower(0.9);
-                    while(robot.Slider.isBusy()){}
-                    sliderRotations++;
-                    robot.Slider.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-                }
+                robot.Slider.setPower(0.9);
             }else{
                 robot.Slider.setPower(0.1);
             }
