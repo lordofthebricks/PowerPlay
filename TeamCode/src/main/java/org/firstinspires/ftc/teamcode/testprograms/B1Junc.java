@@ -9,8 +9,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.utils.Encoders;
 import org.firstinspires.ftc.teamcode.utils.hardware;
 
-@Autonomous(name= "red 2 Junction")
-public class R2Junc extends LinearOpMode {
+@Autonomous(name= "Blue 1 Junction")
+public class B1Junc extends LinearOpMode {
 
     hardware robot = new hardware();
     ElapsedTime runtime = new ElapsedTime();
@@ -41,7 +41,7 @@ public class R2Junc extends LinearOpMode {
         robot.intakeOut(1);
         encoders.encoderDrive(0.2,7,7,7,7,4, opModeIsActive());
         encoders.encoderSlider(0.5,-34,4, opModeIsActive());
-        encoders.encoderDrive(0.5,-12,12,-12,12,3, opModeIsActive());
+        encoders.encoderDrive(0.5,12,-12,12,-12,3, opModeIsActive());
 
     }
 }
