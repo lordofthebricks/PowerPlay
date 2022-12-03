@@ -33,7 +33,7 @@ public class R2Junc extends LinearOpMode {
         waitForStart();
 
         encoders.encoderDrive(0.3,-23,-23,-23,-23,7, opModeIsActive());
-        encoders.encoderDrive(0.3,-37,37,-37,37,7, opModeIsActive());
+        encoders.encoderDrive(0.3,-39,39,-39,39,7, opModeIsActive());
         encoders.encoderSlider(0.7,32,4, opModeIsActive());
         robot.Slider.setPower(0.1);
         encoders.encoderDrive(0.2,-5,-5,-5,-5,4, opModeIsActive());
@@ -41,7 +41,7 @@ public class R2Junc extends LinearOpMode {
         robot.intakeOut(1);
         encoders.encoderDrive(0.2,7,7,7,7,4, opModeIsActive());
         encoders.encoderSlider(0.5,-34,4, opModeIsActive());
-        encoders.encoderDrive(0.5,-12,12,-12,12,3, opModeIsActive());
+        encoders.encoderDrive(0.5,12,12,-12,12,3, opModeIsActive());
 
     }
 }
