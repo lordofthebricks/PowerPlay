@@ -30,7 +30,6 @@ public class TeleopTest extends LinearOpMode {
             robot.Left_Top.setPower(gamepad1.left_stick_y*0.7);
             robot.Right_Top.setPower(gamepad1.right_stick_y*0.7);
 
-            telemetry.addData("Slider Rotations %d", sliderRotations);
             telemetry.update();
 
             if(gamepad1.a){

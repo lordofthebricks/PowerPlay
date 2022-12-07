@@ -1,11 +1,13 @@
 package org.firstinspires.ftc.teamcode.testprograms;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.utils.*;
 
+@Disabled
 @Autonomous
 public class SliderTest extends LinearOpMode {
 //    private ElapsedTime runtime = new ElapsedTime();
