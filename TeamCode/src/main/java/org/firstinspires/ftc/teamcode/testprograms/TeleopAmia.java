@@ -16,10 +16,7 @@ public class TeleopAmia extends LinearOpMode {
 
         robot.init(hardwareMap);
 
-        robot.Left_Bottom.setDirection(DcMotorSimple.Direction.REVERSE);
-        robot.Right_Bottom.setDirection(DcMotorSimple.Direction.REVERSE);
-        robot.Left_Top.setDirection(DcMotorSimple.Direction.REVERSE);
-        robot.Right_Top.setDirection(DcMotorSimple.Direction.REVERSE);
+
 //        robot.Slider.setPower(0.5);
 //        sleep(650);
 //        robot.Slider.setPower(0.1);
@@ -27,10 +24,10 @@ public class TeleopAmia extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            robot.Left_Bottom.setPower(-gamepad1.left_stick_y*0.7);
-            robot.Right_Bottom.setPower(-gamepad1.right_stick_y*0.7);
-            robot.Left_Top.setPower(-gamepad1.left_stick_y*0.7);
-            robot.Right_Top.setPower(-gamepad1.right_stick_y*0.7);
+            robot.Left_Bottom.setPower(gamepad1.left_stick_y*0.7);
+            robot.Right_Bottom.setPower(gamepad1.right_stick_y*0.7);
+            robot.Left_Top.setPower(gamepad1.left_stick_y*0.7);
+            robot.Right_Top.setPower(gamepad1.right_stick_y*0.7);
 
 
 
@@ -43,24 +40,24 @@ public class TeleopAmia extends LinearOpMode {
             }
 
             //Josephs God Damn Omnidirectional dpad controls
-            while (gamepad1.dpad_down && gamepad1.dpad_left) {
-                robot.Right_Top.setPower(.5);
-                robot.Left_Bottom.setPower(.5);
+            while (gamepad1.dpad_up && gamepad1.dpad_left) {
+                robot.Right_Top.setPower(-.5);
+                robot.Left_Bottom.setPower(-.5);
             }
 
             while (gamepad1.dpad_up && gamepad1.dpad_right) {
-                robot.Right_Bottom.setPower(.5);
-                robot.Left_Top.setPower(.5);
-            }
-
-            while (gamepad1.dpad_down && gamepad1.dpad_left) {
                 robot.Right_Bottom.setPower(-.5);
                 robot.Left_Top.setPower(-.5);
             }
 
+            while (gamepad1.dpad_down && gamepad1.dpad_left) {
+                robot.Right_Bottom.setPower(.5);
+                robot.Left_Top.setPower(.5);
+            }
+
             while (gamepad1.dpad_down && gamepad1.dpad_right) {
-                robot.Right_Top.setPower(-.5);
-                robot.Left_Bottom.setPower(-.5);
+                robot.Right_Top.setPower(.5);
+                robot.Left_Bottom.setPower(.5);
             }
 
             while (gamepad1.dpad_right) {
@@ -81,17 +78,17 @@ public class TeleopAmia extends LinearOpMode {
             }
 
             while (gamepad1.dpad_down) {
-                robot.Right_Top.setPower(-.5);
-                robot.Right_Bottom.setPower(-.5);
-                robot.Left_Bottom.setPower(-.5);
-                robot.Left_Top.setPower(-.5);
-            }
-
-            while (gamepad1.dpad_up) {
                 robot.Right_Top.setPower(.5);
                 robot.Right_Bottom.setPower(.5);
                 robot.Left_Bottom.setPower(.5);
                 robot.Left_Top.setPower(.5);
+            }
+
+            while (gamepad1.dpad_up) {
+                robot.Right_Top.setPower(-.5);
+                robot.Right_Bottom.setPower(-.5);
+                robot.Left_Bottom.setPower(-.5);
+                robot.Left_Top.setPower(-.5);
             }
 
 
