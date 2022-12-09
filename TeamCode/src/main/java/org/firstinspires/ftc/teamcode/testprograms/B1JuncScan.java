@@ -27,9 +27,9 @@ public class B1JuncScan extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "PowerPlay.tflite";
 
     private static final String[] LABELS = {
-            "1 vilya",
-            "2 nenya",
-            "3 narya"
+            "narya",
+            "nenya",
+            "vilya"
     };
 
     private static final String VUFORIA_KEY =
@@ -37,7 +37,7 @@ public class B1JuncScan extends LinearOpMode {
 
     private VuforiaLocalizer vuforia;
     private TFObjectDetector tfod;
-
+    String ringParkLocation;
 
 
     @Override
@@ -52,7 +52,7 @@ public class B1JuncScan extends LinearOpMode {
          **/
         if (tfod != null) {
             tfod.activate();
-            tfod.setZoom(1.0, 16.0/9.0);
+            tfod.setZoom(1.0, 4.0/3.0);
         }
 
         robot.init(hardwareMap);
@@ -72,6 +72,7 @@ public class B1JuncScan extends LinearOpMode {
             List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
             if (updatedRecognitions != null) {
                 telemetry.addData("# Objects Detected", updatedRecognitions.size());
+                ringParkLocation = updatedRecognitions.get(0).getLabel();
 
             }
         }
@@ -86,6 +87,19 @@ public class B1JuncScan extends LinearOpMode {
         encoders.encoderDrive(0.2,5,5,5,5,4, opModeIsActive());
         encoders.encoderSlider(0.5,-34,4, opModeIsActive());
         encoders.encoderDrive(0.5,12,-12,12,-12,3, opModeIsActive());
+        switch (ringParkLocation){
+            case "nenya":
+
+                break;
+
+            case "narya":
+
+                break;
+
+            case "vilya":
+                break;
+
+        }
 
     }
 

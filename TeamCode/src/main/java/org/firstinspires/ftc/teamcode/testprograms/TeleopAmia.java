@@ -77,6 +77,23 @@ public class TeleopAmia extends LinearOpMode {
                 robot.Left_Top.setPower(.6);
             }
 
+            while (gamepad1.right_stick_x == 1) {
+                gamepad1.rumble(100);
+                robot.Right_Top.setPower(.6);
+                robot.Right_Bottom.setPower(-.6);
+                robot.Left_Bottom.setPower(.6);
+                robot.Left_Top.setPower(-.6);
+            }
+
+
+            while (gamepad1.left_stick_x == 1) {
+                gamepad1.rumble(100);
+                robot.Right_Top.setPower(-.6);
+                robot.Right_Bottom.setPower(.6);
+                robot.Left_Bottom.setPower(-.6);
+                robot.Left_Top.setPower(.6);
+            }
+
             while (gamepad1.dpad_down) {
                 robot.Right_Top.setPower(.5);
                 robot.Right_Bottom.setPower(.5);
