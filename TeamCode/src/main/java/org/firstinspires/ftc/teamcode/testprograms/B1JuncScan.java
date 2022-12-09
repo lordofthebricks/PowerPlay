@@ -78,6 +78,7 @@ public class B1JuncScan extends LinearOpMode {
         }
 
         encoders.encoderDrive(0.3,-25,-25,-25,-25,7, opModeIsActive());
+        encoders.encoderDrive(0.3,36,-36,-36,36,4,true);
         encoders.encoderDrive(0.3,-38,38,-38,38,7, opModeIsActive());
         encoders.encoderSlider(0.7,32,4, opModeIsActive());
         robot.Slider.setPower(0.1);
@@ -89,14 +90,15 @@ public class B1JuncScan extends LinearOpMode {
         encoders.encoderDrive(0.5,12,-12,12,-12,3, opModeIsActive());
         switch (ringParkLocation){
             case "nenya":
-
                 break;
 
             case "narya":
-
+                encoders.encoderDrive(0.5,24,-24,-24,-24,3,true);
                 break;
 
             case "vilya":
+                encoders.encoderDrive(0.5,24,-24,-24,-24,3,true);
+                encoders.encoderDrive(0.5,24,-24,-24,-24,3,true);
                 break;
 
         }
