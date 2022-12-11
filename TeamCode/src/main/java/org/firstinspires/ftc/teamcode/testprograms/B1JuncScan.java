@@ -16,15 +16,18 @@ import org.firstinspires.ftc.teamcode.utils.Encoders;
 import org.firstinspires.ftc.teamcode.utils.hardware;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
 @Autonomous(name= "Blue 1 Hgh Junction Scan")
 public class B1JuncScan extends LinearOpMode {
 
     hardware robot = new hardware();
     ElapsedTime runtime = new ElapsedTime();
+    ElapsedTime Timer = new ElapsedTime();
     Encoders encoders = new Encoders(robot,/*true,*/ runtime);
 
-    private static final String TFOD_MODEL_ASSET = "PowerPlay.tflite";
+    private static final String TFOD_MODEL_ASSET = "customSignalModel.tflite";
 
     private static final String[] LABELS = {
             "narya",
@@ -40,6 +43,7 @@ public class B1JuncScan extends LinearOpMode {
     String ringParkLocation;
 
 
+
     @Override
     public void runOpMode() throws InterruptedException {
 
@@ -52,7 +56,7 @@ public class B1JuncScan extends LinearOpMode {
          **/
         if (tfod != null) {
             tfod.activate();
-            tfod.setZoom(1.0, 4.0/3.0);
+            tfod.setZoom(1.5, 16.0/9.0);
         }
 
         robot.init(hardwareMap);
@@ -66,20 +70,36 @@ public class B1JuncScan extends LinearOpMode {
 
         waitForStart();
 
+        //move forward for better detection
+        encoders.encoderDrive(0.5,4,4,4,4,2, opModeIsActive());
+
         if (tfod != null) {
             // getUpdatedRecognitions() will return null if no new information is available since
             // the last time that call was made.
-            List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
-            if (updatedRecognitions != null) {
-                telemetry.addData("# Objects Detected", updatedRecognitions.size());
-                ringParkLocation = updatedRecognitions.get(0).getLabel();
+            List<Recognition> updatedRecognitions;
+            Timer.reset();
 
-            }
+            while( ringParkLocation == null && Timer.seconds() < 13){
+                updatedRecognitions = tfod.getUpdatedRecognitions();
+                telemetry.addData("Time: ",Timer.seconds());
+                telemetry.update();
+                if (updatedRecognitions != null) {
+                    if (updatedRecognitions.size() != 0) {
+                        ringParkLocation = updatedRecognitions.get(0).getLabel();
+                        telemetry.addData("Target Detected:", ringParkLocation);
+                        telemetry.update();
+                    }
+                }
+            };
+
         }
+        telemetry.addData("Target Detected:", ringParkLocation);
+        telemetry.update();
 
-        encoders.encoderDrive(0.3,-25,-25,-25,-25,7, opModeIsActive());
-        encoders.encoderDrive(0.3,36,-36,-36,36,4,true);
-        encoders.encoderDrive(0.3,-38,38,-38,38,7, opModeIsActive());
+        encoders.encoderDrive(0.3,20,20,20,20,7, opModeIsActive());
+        encoders.encoderDrive(0.3,-2,-2,-2,-2,3,opModeIsActive());
+        encoders.encoderDrive(0.3,29,-29,-29,29,4,opModeIsActive());
+        encoders.encoderDrive(0.3,-36,36,-36,36,7, opModeIsActive());
         encoders.encoderSlider(0.7,32,4, opModeIsActive());
         robot.Slider.setPower(0.1);
         encoders.encoderDrive(0.2,-4,-4,-4,-4,4, opModeIsActive());
@@ -88,19 +108,23 @@ public class B1JuncScan extends LinearOpMode {
         encoders.encoderDrive(0.2,5,5,5,5,4, opModeIsActive());
         encoders.encoderSlider(0.5,-34,4, opModeIsActive());
         encoders.encoderDrive(0.5,12,-12,12,-12,3, opModeIsActive());
-        switch (ringParkLocation){
-            case "nenya":
-                break;
+        if (ringParkLocation != null) {
+           switch (ringParkLocation) {
+               case "vilya":
+                   break;
 
-            case "narya":
-                encoders.encoderDrive(0.5,24,-24,-24,-24,3,true);
-                break;
+               case "narya":
+                   encoders.encoderDrive(0.5, 24, -24, 24, -24, 3, true);
+                   break;
 
-            case "vilya":
-                encoders.encoderDrive(0.5,24,-24,-24,-24,3,true);
-                encoders.encoderDrive(0.5,24,-24,-24,-24,3,true);
-                break;
+               case "nenya":
+                   encoders.encoderDrive(0.5, 24, -24, 24, -24, 3, true);
+                   encoders.encoderDrive(0.5, 24, -24, 24, -24, 3, true);
+                   break;
+               default:
+                   break;
 
+           }
         }
 
     }
