@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.utils.Encoders;
 import org.firstinspires.ftc.teamcode.utils.hardware;
 
-@Autonomous(name= "red 2 Junction")
+@Autonomous(name= "Red 2 Junction Final Alliance of Elves and Men")
 public class R2Junc extends LinearOpMode {
 
     hardware robot = new hardware();
@@ -31,7 +31,7 @@ public class R2Junc extends LinearOpMode {
         encoders.encoderSlider(0.5,1,1,opModeInInit());
 
         waitForStart();
-
+        sleep(5000);
         encoders.encoderDrive(0.3,-25,-25,-25,-25,7, opModeIsActive());
         encoders.encoderDrive(0.3,-38,38,-38,38,7, opModeIsActive());
         encoders.encoderSlider(0.7,32,4, opModeIsActive());

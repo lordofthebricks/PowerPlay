@@ -5,22 +5,19 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection;
 import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
-
-
 import org.firstinspires.ftc.teamcode.utils.Encoders;
 import org.firstinspires.ftc.teamcode.utils.hardware;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.concurrent.TimeUnit;
 
-@Autonomous(name= "Blue 1 Hgh Junction Scan")
-public class B1JuncScan extends LinearOpMode {
+@Autonomous(name= "Blue 2 Park Scan")
+public class B2ParkScan extends LinearOpMode {
 
     hardware robot = new hardware();
     ElapsedTime runtime = new ElapsedTime();
@@ -98,29 +95,29 @@ public class B1JuncScan extends LinearOpMode {
 
         encoders.encoderDrive(0.3,20,20,20,20,7, opModeIsActive());
         encoders.encoderDrive(0.3,-2,-2,-2,-2,3,opModeIsActive());
-        encoders.encoderDrive(0.3,29,-29,-29,29,4,opModeIsActive());
-        encoders.encoderDrive(0.3,-38,38,-38,38,7, opModeIsActive());
-        encoders.encoderSlider(0.7,36,4, opModeIsActive());
-        robot.Slider.setPower(0.1);
-        robot.intakeIn(2);
-        encoders.encoderDrive(0.2,-4,-4,-4,-4,4, opModeIsActive());
-        sleep(500);
-        robot.intakeOut(2);
-        encoders.encoderDrive(0.2,5,5,5,5,4, opModeIsActive());
-        encoders.encoderSlider(0.5,-34,4, opModeIsActive());
-        encoders.encoderDrive(0.5,12,-12,12,-12,3, opModeIsActive());
+//        encoders.encoderDrive(0.3,29,-29,-29,29,4,opModeIsActive());
+//        encoders.encoderDrive(0.3,-38,38,-38,38,7, opModeIsActive());
+//        encoders.encoderSlider(0.7,36,4, opModeIsActive());
+//        robot.Slider.setPower(0.1);
+//        robot.intakeIn(2);
+//        encoders.encoderDrive(0.2,-4,-4,-4,-4,4, opModeIsActive());
+//        sleep(500);
+//        robot.intakeOut(2);
+//        encoders.encoderDrive(0.2,5,5,5,5,4, opModeIsActive());
+//        encoders.encoderSlider(0.5,-34,4, opModeIsActive());
+        //encoders.encoderDrive(0.5,12,-12,12,-12,3, opModeIsActive());
         if (ringParkLocation != null) {
            switch (ringParkLocation) {
                case "vilya":
+                   encoders.encoderDrive(0.5, -24, 24, -24, 24, 3, true);
                    break;
 
                case "narya":
-                   encoders.encoderDrive(0.5, 24, -24, 24, -24, 3, true);
                    break;
 
                case "nenya":
                    encoders.encoderDrive(0.5, 24, -24, 24, -24, 3, true);
-                   encoders.encoderDrive(0.5, 24, -24, 24, -24, 3, true);
+
                    break;
                default:
                    break;

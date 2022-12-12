@@ -32,7 +32,8 @@ public class B2Junc extends LinearOpMode {
 
         waitForStart();
 
-        encoders.encoderDrive(0.3,-25,-25,-25,-25,7, opModeIsActive());
+        sleep(5000);
+        encoders.encoderDrive(0.3,-24,-24,-24,-2,7, opModeIsActive());
         encoders.encoderDrive(0.3,38,-38,38,-38,7, opModeIsActive());
         encoders.encoderSlider(0.7,32,4, opModeIsActive());
         robot.Slider.setPower(0.1);
