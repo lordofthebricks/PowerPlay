@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.IMU;
 
 public class hardware {
 
@@ -15,6 +16,7 @@ public class hardware {
     public DcMotor Slider;
     public CRServo Intake1;
     public CRServo Intake2;
+    public IMU Gyro;
 
     HardwareMap hwMap = null;
 
@@ -31,7 +33,7 @@ public class hardware {
         Right_Top.setDirection(DcMotor.Direction.REVERSE);
         Right_Bottom.setDirection(DcMotor.Direction.REVERSE);
         Slider.setDirection(DcMotorSimple.Direction.REVERSE);
-
+        Gyro = hwMap.get(IMU.class, "imu");
 
     }
 
