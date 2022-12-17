@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.utils.Encoders;
-import org.firstinspires.ftc.teamcode.utils.hardware;
+import org.firstinspires.ftc.teamcode.customutils.Encoders;
+import org.firstinspires.ftc.teamcode.customutils.hardware;
 
 @Autonomous(name= "Red 2 Junction Final Alliance of Elves and Men")
 public class R2Junc extends LinearOpMode {

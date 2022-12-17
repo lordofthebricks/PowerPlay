@@ -11,8 +11,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection;
 import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
-import org.firstinspires.ftc.teamcode.utils.Encoders;
-import org.firstinspires.ftc.teamcode.utils.hardware;
+import org.firstinspires.ftc.teamcode.customutils.Encoders;
+import org.firstinspires.ftc.teamcode.customutils.hardware;
 
 import java.util.List;
 
@@ -70,6 +70,7 @@ public class B2ParkScan extends LinearOpMode {
         //move forward for better detection
         encoders.encoderDrive(0.5,4,4,4,4,2, opModeIsActive());
 
+
         if (tfod != null) {
             // getUpdatedRecognitions() will return null if no new information is available since
             // the last time that call was made.
@@ -94,7 +95,7 @@ public class B2ParkScan extends LinearOpMode {
         telemetry.update();
 
         encoders.encoderDrive(0.3,20,20,20,20,7, opModeIsActive());
-        encoders.encoderDrive(0.3,-2,-2,-2,-2,3,opModeIsActive());
+        encoders.encoderDrive(0.3,-1,-1,-1,-1,3,opModeIsActive());
 //        encoders.encoderDrive(0.3,29,-29,-29,29,4,opModeIsActive());
 //        encoders.encoderDrive(0.3,-38,38,-38,38,7, opModeIsActive());
 //        encoders.encoderSlider(0.7,36,4, opModeIsActive());

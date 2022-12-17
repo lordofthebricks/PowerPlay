@@ -12,12 +12,10 @@ import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 
 
-import org.firstinspires.ftc.teamcode.utils.Encoders;
-import org.firstinspires.ftc.teamcode.utils.hardware;
+import org.firstinspires.ftc.teamcode.customutils.Encoders;
+import org.firstinspires.ftc.teamcode.customutils.hardware;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.concurrent.TimeUnit;
 
 @Autonomous(name= "Blue 1 Hgh Junction Scan")
 public class B1JuncScan extends LinearOpMode {

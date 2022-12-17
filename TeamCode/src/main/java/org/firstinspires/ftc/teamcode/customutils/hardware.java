@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.utils;
+package org.firstinspires.ftc.teamcode.customutils;
 
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
