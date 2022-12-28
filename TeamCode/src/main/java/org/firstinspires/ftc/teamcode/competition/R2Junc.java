@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.testprograms;
+package org.firstinspires.ftc.teamcode.competition;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -9,8 +9,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.customutils.Encoders;
 import org.firstinspires.ftc.teamcode.customutils.hardware;
 
-@Autonomous(name= "blue 2 Junction")
-public class B2Junc extends LinearOpMode {
+@Autonomous(name= "Red 2 Junction Final Alliance of Elves and Men")
+public class R2Junc extends LinearOpMode {
 
     hardware robot = new hardware();
     ElapsedTime runtime = new ElapsedTime();
@@ -31,10 +31,9 @@ public class B2Junc extends LinearOpMode {
         encoders.encoderSlider(0.5,1,1,opModeInInit());
 
         waitForStart();
-
         sleep(5000);
-        encoders.encoderDrive(0.3,-24,-24,-24,-2,7, opModeIsActive());
-        encoders.encoderDrive(0.3,38,-38,38,-38,7, opModeIsActive());
+        encoders.encoderDrive(0.3,-25,-25,-25,-25,7, opModeIsActive());
+        encoders.encoderDrive(0.3,-38,38,-38,38,7, opModeIsActive());
         encoders.encoderSlider(0.7,32,4, opModeIsActive());
         robot.Slider.setPower(0.1);
         encoders.encoderDrive(0.2,-4,-4,-4,-4,4, opModeIsActive());
@@ -42,7 +41,7 @@ public class B2Junc extends LinearOpMode {
         robot.intakeOut(1);
         encoders.encoderDrive(0.2,5,5,5,5,4, opModeIsActive());
         encoders.encoderSlider(0.5,-34,4, opModeIsActive());
-        encoders.encoderDrive(0.5,-12,12,-12,12,3, opModeIsActive());
+        encoders.encoderDrive(0.5,12,12,-12,12,3, opModeIsActive());
 
     }
 }

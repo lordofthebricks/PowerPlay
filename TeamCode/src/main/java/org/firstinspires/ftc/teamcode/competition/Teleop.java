@@ -1,12 +1,13 @@
-package org.firstinspires.ftc.teamcode.testprograms;
+package org.firstinspires.ftc.teamcode.competition;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+
 import org.firstinspires.ftc.teamcode.customutils.hardware;
 
-@TeleOp(name= "Amia's Compition Teleop")
-public class TeleopAmia extends LinearOpMode {
+@TeleOp(name= "Competition Teleop")
+public class Teleop extends LinearOpMode {
 
 
     @Override
@@ -30,9 +31,9 @@ public class TeleopAmia extends LinearOpMode {
 
 
 
-            if(gamepad1.a){
+            if(gamepad1.right_trigger == 1){
                 robot.Slider.setPower(-0.7);
-            }else if(gamepad1.x){
+            }else if(gamepad1.right_bumper){
                 robot.Slider.setPower(0.9);
             }else{
                 robot.Slider.setPower(0.1);
@@ -108,12 +109,12 @@ public class TeleopAmia extends LinearOpMode {
             }
 
 
-            if(gamepad1.left_bumper){
-                robot.Intake1.setPower(-0.8);
-                robot.Intake2.setPower(0.8);
-            }else if(gamepad1.right_bumper){
+            if(gamepad1.left_trigger == 1){
                 robot.Intake1.setPower(0.8);
                 robot.Intake2.setPower(-0.8);
+            }else if(gamepad1.left_bumper){
+                robot.Intake1.setPower(-0.8);
+                robot.Intake2.setPower(0.8);
             }else{
                 robot.Intake1.setPower(0);
                 robot.Intake2.setPower(0);
