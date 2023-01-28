@@ -2,7 +2,10 @@ package org.firstinspires.ftc.teamcode.competition;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
 import org.firstinspires.ftc.teamcode.customutils.hardware;
 
 @TeleOp(name= "Amia's Competition Teleop")
@@ -27,7 +30,7 @@ public class TeleopAmia extends LinearOpMode {
             robot.Right_Bottom.setPower(gamepad1.right_stick_y*0.7);
             robot.Left_Top.setPower(gamepad1.left_stick_y*0.7);
             robot.Right_Top.setPower(gamepad1.right_stick_y*0.7);
-
+            robot.Slider.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 
             if(gamepad1.a){

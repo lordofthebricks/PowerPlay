@@ -3,24 +3,30 @@ package org.firstinspires.ftc.teamcode.testprograms;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
+import org.firstinspires.ftc.teamcode.customutils.Encoders;
 import org.firstinspires.ftc.teamcode.customutils.hardware;
 
 @TeleOp
-@Disabled
+//@Disabled
 public class TeleopTest extends LinearOpMode {
+
 
     Integer sliderRotations = 0;
     final double countsPerRotationSlide = 537.7;
     @Override
     public void runOpMode() throws InterruptedException {
         hardware robot = new hardware();
-
+        ElapsedTime runtime = new ElapsedTime();
+        Encoders encoder = new Encoders(robot, runtime);
         robot.init(hardwareMap);
 //        robot.Slider.setPower(0.5);
 //        sleep(650);
 //        robot.Slider.setPower(0.1);
-
+        YawPitchRollAngles Orientation = robot.Gyro.getRobotYawPitchRollAngles();
         waitForStart();
 
         while (opModeIsActive()) {
@@ -29,14 +35,18 @@ public class TeleopTest extends LinearOpMode {
             robot.Left_Top.setPower(gamepad1.left_stick_y*0.7);
             robot.Right_Top.setPower(gamepad1.right_stick_y*0.7);
 
+            telemetry.addData("Heading",Orientation.getYaw(AngleUnit.DEGREES));
+            telemetry.update();
             telemetry.update();
 
             if(gamepad1.a){
-                    robot.Slider.setPower(-0.7);
-            }else if(gamepad1.x){
-                robot.Slider.setPower(0.9);
-            }else{
-                robot.Slider.setPower(0.1);
+                telemetry.addData("Heading",Orientation.getYaw(AngleUnit.DEGREES));
+                telemetry.update();
+                encoder.angleTurn(90);
+            } else if (gamepad1.b) {
+                telemetry.addData("Heading",Orientation.getYaw(AngleUnit.DEGREES));
+                telemetry.update();
+                encoder.angleTurn(-90);
             }
 
             //This is the Strafe

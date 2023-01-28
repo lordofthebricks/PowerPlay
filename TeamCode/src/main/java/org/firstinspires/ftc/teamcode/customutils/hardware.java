@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.customutils;
 
+import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -18,6 +19,16 @@ public class hardware {
     public CRServo Intake2;
     public IMU Gyro;
 
+    public final int SPIN_DISTANCE = 28;// this is long enough to spin the robot 180 degrees. It is length + the width of the robot
+
+    public IMU.Parameters IMUparams = new IMU.Parameters(
+            new RevHubOrientationOnRobot(
+            RevHubOrientationOnRobot.LogoFacingDirection.BACKWARD,
+            RevHubOrientationOnRobot.UsbFacingDirection.LEFT
+            )
+    );
+
+
     HardwareMap hwMap = null;
 
     public void init(HardwareMap ahwMap){
@@ -34,6 +45,12 @@ public class hardware {
         Right_Bottom.setDirection(DcMotor.Direction.REVERSE);
         Slider.setDirection(DcMotorSimple.Direction.REVERSE);
         Gyro = hwMap.get(IMU.class, "imu");
+        Left_Bottom.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        Left_Top.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        Right_Bottom.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        Right_Top.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        Gyro.initialize(IMUparams);
+        Gyro.resetYaw();
 
     }
 

@@ -5,6 +5,10 @@ package org.firstinspires.ftc.teamcode.customutils;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
+
 
 public class Encoders {
 
@@ -145,4 +149,21 @@ public class Encoders {
         }
     }
 
+   public void angleTurn(double angleTurn){
+       //robot.Gyro.resetYaw();
+       YawPitchRollAngles robotOrientation;
+       robotOrientation = robot.Gyro.getRobotYawPitchRollAngles();
+       if (angleTurn>0) {
+           for (double i = robotOrientation.getYaw(AngleUnit.DEGREES); i >= angleTurn;
+                i = robotOrientation.getYaw(AngleUnit.DEGREES)) {
+               encoderDrive(0.5, 1, -1, -1, 1, 1, true);
+           }
+       } else if (angleTurn<0) {
+           for (double i = robotOrientation.getYaw(AngleUnit.DEGREES); i <= angleTurn;
+                i = robotOrientation.getYaw(AngleUnit.DEGREES)){
+               encoderDrive(0.5,-1,1,1,-1,1,true);
+           }
+       }else {return;}
+
+    }
 }

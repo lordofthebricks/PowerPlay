@@ -16,8 +16,8 @@ import org.firstinspires.ftc.teamcode.customutils.hardware;
 
 import java.util.List;
 
-@Autonomous(name= "red 2 High Junction Scan")
-public class R2JuncScan extends LinearOpMode {
+@Autonomous(name= "Red 1 High Junction Scan")
+public class R1JuncScan extends LinearOpMode {
 
     hardware robot = new hardware();
     ElapsedTime runtime = new ElapsedTime();
@@ -96,7 +96,7 @@ public class R2JuncScan extends LinearOpMode {
         encoders.encoderDrive(0.3,20,20,20,20,7, opModeIsActive());
         encoders.encoderDrive(0.3,-2,-2,-2,-2,3,opModeIsActive());
         encoders.encoderDrive(0.3,29,-29,-29,29,4,opModeIsActive());
-        encoders.encoderDrive(0.3,38,-38,38,-38,7, opModeIsActive());
+        encoders.encoderDrive(0.3,-38,38,-38,38,7, opModeIsActive());
         encoders.encoderSlider(0.7,36,4, opModeIsActive());
         robot.Slider.setPower(0.1);
         robot.intakeIn(2);
@@ -105,7 +105,7 @@ public class R2JuncScan extends LinearOpMode {
         robot.intakeOut(2);
         encoders.encoderDrive(0.2,5,5,5,5,4, opModeIsActive());
         encoders.encoderSlider(0.5,-34,4, opModeIsActive());
-        encoders.encoderDrive(0.5,-12,12,-12,12,3, opModeIsActive());
+        encoders.encoderDrive(0.5,12,-12,12,-12,3, opModeIsActive());
         if (ringParkLocation != null) {
            switch (ringParkLocation) {
                case "vilya":
