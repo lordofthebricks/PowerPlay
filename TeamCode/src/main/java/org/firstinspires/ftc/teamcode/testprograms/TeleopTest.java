@@ -37,7 +37,6 @@ public class TeleopTest extends LinearOpMode {
 
             telemetry.addData("Heading",Orientation.getYaw(AngleUnit.DEGREES));
             telemetry.update();
-            telemetry.update();
 
             if(gamepad1.a){
                 telemetry.addData("Heading",Orientation.getYaw(AngleUnit.DEGREES));

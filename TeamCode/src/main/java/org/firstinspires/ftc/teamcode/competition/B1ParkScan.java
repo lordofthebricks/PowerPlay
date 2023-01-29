@@ -16,8 +16,8 @@ import org.firstinspires.ftc.teamcode.customutils.hardware;
 
 import java.util.List;
 
-@Autonomous(name= "Red 1 Park Scan")
-public class R1ParkScan extends LinearOpMode {
+@Autonomous(name= "Blue 1 Park Scan")
+public class B1ParkScan extends LinearOpMode {
 
     hardware robot = new hardware();
     ElapsedTime runtime = new ElapsedTime();

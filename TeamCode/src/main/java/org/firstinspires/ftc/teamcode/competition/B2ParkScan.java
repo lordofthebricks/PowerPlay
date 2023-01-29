@@ -110,14 +110,14 @@ public class B2ParkScan extends LinearOpMode {
         if (ringParkLocation != null) {
            switch (ringParkLocation) {
                case "vilya":
-                   encoders.encoderDrive(0.5, -24, 24, -24, 24, 3, true);
+                   encoders.encoderDrive(0.5, 24, -24, 24, -24, 3, true);
                    break;
 
                case "narya":
                    break;
 
                case "nenya":
-                   encoders.encoderDrive(0.5, 24, -24, 24, -24, 3, true);
+                   encoders.encoderDrive(0.5, -24, 24, -24, 24, 3, true);
 
                    break;
                default:

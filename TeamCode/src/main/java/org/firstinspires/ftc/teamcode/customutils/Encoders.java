@@ -150,20 +150,25 @@ public class Encoders {
     }
 
    public void angleTurn(double angleTurn){
-       //robot.Gyro.resetYaw();
-       YawPitchRollAngles robotOrientation;
-       robotOrientation = robot.Gyro.getRobotYawPitchRollAngles();
+       robot.Gyro.resetYaw();
+//       YawPitchRollAngles robotOrientation;
+//       robotOrientation = robot.Gyro.getRobotYawPitchRollAngles();
        if (angleTurn>0) {
-           for (double i = robotOrientation.getYaw(AngleUnit.DEGREES); i >= angleTurn;
-                i = robotOrientation.getYaw(AngleUnit.DEGREES)) {
-               encoderDrive(0.5, 1, -1, -1, 1, 1, true);
+           for (double i = getYaw(); i >= angleTurn;
+                i = getYaw()) {
+               encoderDrive(0.5, 2, -2, -2, 1, 1, true);
            }
        } else if (angleTurn<0) {
-           for (double i = robotOrientation.getYaw(AngleUnit.DEGREES); i <= angleTurn;
-                i = robotOrientation.getYaw(AngleUnit.DEGREES)){
-               encoderDrive(0.5,-1,1,1,-1,1,true);
+           for (double i = getYaw(); i <= angleTurn;
+                i = getYaw()){
+               encoderDrive(0.5,-2,2,2,-2,1,true);
            }
        }else {return;}
 
+    }
+    double getYaw(){
+        YawPitchRollAngles robotOrientation;
+        robotOrientation = robot.Gyro.getRobotYawPitchRollAngles();
+        return robotOrientation.getYaw(AngleUnit.DEGREES);
     }
 }

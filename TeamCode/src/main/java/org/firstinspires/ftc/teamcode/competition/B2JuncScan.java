@@ -94,9 +94,9 @@ public class B2JuncScan extends LinearOpMode {
         telemetry.update();
 
         encoders.encoderDrive(0.3,20,20,20,20,7, opModeIsActive());
-        //encoders.encoderDrive(0.3,-2,-2,-2,-2,3,opModeIsActive());
-        encoders.encoderDrive(0.4,29,-29,-29,29,4,opModeIsActive());
-        encoders.encoderDrive(0.3,-38,38,-38,38,7, opModeIsActive());
+        encoders.encoderDrive(0.3,-1,-1,-1,-1,3,opModeIsActive());
+        encoders.encoderDrive(0.5,31,-31,-31,31,5,opModeIsActive());
+        encoders.encoderDrive(0.3,-40,40,-40,40,8, opModeIsActive());
         encoders.encoderSlider(0.7,36,4, opModeIsActive());
         robot.Slider.setPower(0.1);
         robot.intakeIn(2);
