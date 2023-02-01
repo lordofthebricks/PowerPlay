@@ -51,7 +51,10 @@ public class hardware {
         Right_Top.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         Gyro.initialize(IMUparams);
         Gyro.resetYaw();
-
+        Left_Top.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        Left_Bottom.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        Right_Top.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        Right_Bottom.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
 

@@ -151,18 +151,26 @@ public class Encoders {
 
    public void angleTurn(double angleTurn){
        robot.Gyro.resetYaw();
-//       YawPitchRollAngles robotOrientation;
-//       robotOrientation = robot.Gyro.getRobotYawPitchRollAngles();
+       double heading;
+//
        if (angleTurn>0) {
-           for (double i = getYaw(); i >= angleTurn;
-                i = getYaw()) {
-               encoderDrive(0.5, 2, -2, -2, 1, 1, true);
-           }
+          do {
+                heading = getYaw();
+                robot.Left_Bottom.setPower(-0.8);
+                robot.Left_Top.setPower(-0.8);
+                robot.Right_Bottom.setPower(0.8);
+                robot.Right_Top.setPower(0.8);
+                //encoderDrive(0.5, 1.4, -1.4, -1.4, 1.4, 1.6, true);
+           }while (heading < angleTurn);
+           robot.Left_Bottom.setPower(0);
+           robot.Left_Top.setPower(0);
+           robot.Right_Bottom.setPower(0);
+           robot.Right_Top.setPower(0);
        } else if (angleTurn<0) {
-           for (double i = getYaw(); i <= angleTurn;
-                i = getYaw()){
-               encoderDrive(0.5,-2,2,2,-2,1,true);
-           }
+           do {
+               heading = getYaw();
+               encoderDrive(0.7,-1,1,1,-1,1,true);
+           }while (heading > angleTurn);
        }else {return;}
 
     }

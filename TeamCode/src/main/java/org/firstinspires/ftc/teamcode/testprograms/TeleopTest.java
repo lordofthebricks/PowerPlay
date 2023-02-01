@@ -26,7 +26,7 @@ public class TeleopTest extends LinearOpMode {
 //        robot.Slider.setPower(0.5);
 //        sleep(650);
 //        robot.Slider.setPower(0.1);
-        YawPitchRollAngles Orientation = robot.Gyro.getRobotYawPitchRollAngles();
+
         waitForStart();
 
         while (opModeIsActive()) {
@@ -34,7 +34,7 @@ public class TeleopTest extends LinearOpMode {
             robot.Right_Bottom.setPower(gamepad1.right_stick_y*0.7);
             robot.Left_Top.setPower(gamepad1.left_stick_y*0.7);
             robot.Right_Top.setPower(gamepad1.right_stick_y*0.7);
-
+            YawPitchRollAngles Orientation = robot.Gyro.getRobotYawPitchRollAngles();
             telemetry.addData("Heading",Orientation.getYaw(AngleUnit.DEGREES));
             telemetry.update();
 
