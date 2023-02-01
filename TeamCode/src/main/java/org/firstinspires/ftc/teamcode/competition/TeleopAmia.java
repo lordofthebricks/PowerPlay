@@ -19,9 +19,7 @@ public class TeleopAmia extends LinearOpMode {
         robot.init(hardwareMap);
 
 
-//        robot.Slider.setPower(0.5);
-//        sleep(650);
-//        robot.Slider.setPower(0.1);
+
 
         waitForStart();
 
@@ -32,6 +30,9 @@ public class TeleopAmia extends LinearOpMode {
             robot.Right_Top.setPower(gamepad1.right_stick_y*0.7);
             robot.Slider.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+            YawPitchRollAngles orientation = robot.Gyro.getRobotYawPitchRollAngles();
+            telemetry.addData("Heading", "%.2f Deg.", orientation.getYaw(AngleUnit.DEGREES));
+            telemetry.update();
 
             if(gamepad1.a){
                 robot.Slider.setPower(-0.7);
@@ -80,7 +81,7 @@ public class TeleopAmia extends LinearOpMode {
             }
 
             while (gamepad1.right_stick_x == 1) {
-                gamepad1.rumble(100);
+                gamepad1.rumble(1000);
                 robot.Right_Top.setPower(.6);
                 robot.Right_Bottom.setPower(-.6);
                 robot.Left_Bottom.setPower(.6);
@@ -88,8 +89,8 @@ public class TeleopAmia extends LinearOpMode {
             }
 
 
-            while (gamepad1.left_stick_x == 1) {
-                gamepad1.rumble(100);
+            while (gamepad1.left_stick_x == -1) {
+                gamepad1.rumble(1000);
                 robot.Right_Top.setPower(-.6);
                 robot.Right_Bottom.setPower(.6);
                 robot.Left_Bottom.setPower(-.6);
@@ -97,7 +98,7 @@ public class TeleopAmia extends LinearOpMode {
             }
 
             while (gamepad1.dpad_down) {
-                robot.Right_Top.setPower(.5);
+                 robot.Right_Top.setPower(.5);
                 robot.Right_Bottom.setPower(.5);
                 robot.Left_Bottom.setPower(.5);
                 robot.Left_Top.setPower(.5);
