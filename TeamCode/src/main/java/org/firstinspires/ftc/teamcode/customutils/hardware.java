@@ -58,22 +58,22 @@ public class hardware {
     }
 
 
-    public void intakeOut(int time){
+    public void intakeOut(double time){
         Intake1.setPower(-0.8);
         Intake2.setPower(0.8);
         try{
-            Thread.sleep(time*1000);
+            Thread.sleep((long)time*1000);
         } catch (InterruptedException e) {}
 
         Intake1.setPower(0);
         Intake2.setPower(0);
     };
     
-    public void intakeIn(int time){
+    public void intakeIn(double time){
         Intake1.setPower(0.8);
         Intake2.setPower(-0.8);
         try{
-            Thread.sleep(time*1000);
+            Thread.sleep((long) time*1000);
         } catch (InterruptedException e) {}
 
         Intake1.setPower(0);

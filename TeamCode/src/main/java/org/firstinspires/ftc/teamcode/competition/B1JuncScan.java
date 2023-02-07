@@ -63,7 +63,7 @@ public class B1JuncScan extends LinearOpMode {
         robot.Left_Top.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.Right_Bottom.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.Right_Top.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.intakeIn(1);
+//        robot.intakeIn(1);
         encoders.encoderSlider(0.5,1,1,opModeInInit());
 
         waitForStart();
@@ -77,7 +77,7 @@ public class B1JuncScan extends LinearOpMode {
             List<Recognition> updatedRecognitions;
             Timer.reset();
 
-            while( ringParkLocation == null && Timer.seconds() < 13){
+            while( ringParkLocation == null && Timer.seconds() < 9){
                 updatedRecognitions = tfod.getUpdatedRecognitions();
                 telemetry.addData("Time: ",Timer.seconds());
                 telemetry.update();
@@ -100,12 +100,12 @@ public class B1JuncScan extends LinearOpMode {
         encoders.encoderDrive(0.3,41, -41,41,-41,8, opModeIsActive());
         encoders.encoderSlider(0.7,36,4, opModeIsActive());
         robot.Slider.setPower(0.1);
-        robot.intakeIn(2);
-        encoders.encoderDrive(0.2,-2,-2,-2,-2,4, opModeIsActive());
+        robot.intakeIn(0.5);
+        encoders.encoderDrive(0.2,-3,-3,-3,-3,4, opModeIsActive());
         sleep(500);
         robot.intakeOut(2);
         encoders.encoderDrive(0.2,5,5,5,5,4, opModeIsActive());
-        encoders.encoderSlider(0.5,-34,4, opModeIsActive());
+        encoders.encoderSlider(0.8 ,-34,4, opModeIsActive());
         encoders.encoderDrive(0.5,-12,12,-12,12,3, opModeIsActive());
         if (ringParkLocation != null) {
            switch (ringParkLocation) {
